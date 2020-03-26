@@ -1,4 +1,5 @@
 import random
+total_streak = 0
 
 #assign random values to all positions in random set
 def flip(number):
@@ -12,28 +13,20 @@ def flip(number):
     return flip_list
 
 def streak_checker(obs_set):
-    x = 0
-    for i in range(len(obs_set)):
-        if obs_set[i]== obs_set[i+1]:
-            if obs_set[i+1] == obs_set[i+2]:
-                if obs_set[i+2] == obs_set[i+3]:
-                    if obs_set[i+3] == obs_set[i+4]:
-                        if obs_set[i+4] == obs_set[i+5]:
-                            print('its a streak')
-                            x = x+1
-                        else:
-                            continue
-                    else:
-                        continue
-                else:
-                    continue
-            else:
+    global total_streak
+    current_streak = 1
+    p_flip = None
+    for flip in obs_set:
+        if flip == p_flip:
+            current_streak += 1
+            if current_streak == 6:
+                total_streak += 1
                 continue
         else:
-            continue
+            current_streak = 1
+        p_flip = flip
+    x = total_streak
     return x
-
-
 
 print('Enter the size of your observation set:')
 observation_number = input()
