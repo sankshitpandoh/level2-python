@@ -12,12 +12,9 @@ for x in range(WIDTH):
         else:
             column.append('#')
     nextCells.append(column)
-    
-# for i in range(WIDTH):
-#     print(nextCells[i])
 
 while True:
-    cells = copy.copy(nextCells)
+    cells = copy.deepcopy(nextCells)
     print('\n\n\n\n\n') # Separate each step with newlines.
     for y in range(HEIGHT):
         for x in range(WIDTH):
