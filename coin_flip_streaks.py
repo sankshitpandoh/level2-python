@@ -34,3 +34,5 @@ gen_list = flip(observation_number)
 print(gen_list)
 number_streaks = streak_checker(gen_list)
 print(number_streaks)
+percent = int(number_streaks)/int(observation_number) * 100
+print('chances of occurence of streak in a set of ' +observation_number+ ' samples is ' +str(percent) )
